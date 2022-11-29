@@ -79,9 +79,12 @@
 			let nome = document.getElementById('nome').value;
 			let email = document.getElementById('email').value;
 			let telefone = document.getElementById('telefone').value;
-			
-			eel.cadastrarContato(nome, email, telefone);
-			pesquisar();
+
+			if (nome.trim() != '' && email.trim() != '' && telefone.trim() != '') {
+				eel.cadastrarContato(nome, email, telefone);
+				fecharModalCadastrar();
+				pesquisar();
+			}
 		}
 
 		function excluir(id, nome) {
@@ -103,12 +106,10 @@
 			let html = `<div class="back" id="modalCadastro">
 							<div class="modal-cadastrar">
 								<h1 class="menu-title">Cadastrar Contato</h1>
-								<form class="form" action="#" id="formCadastrar">
-									<input class="form-input" type="text" name="nome" id="nome" placeholder="nome">
-									<input class="form-input" type="text" name="email" id="email" placeholder="email">
-									<input class="form-input" type="text" name="telefone" onkeypress="mask(this, mphone);" id="telefone" placeholder="telefone">
-									<button onclick="cadastrar()" class="input-submit" onclick="cadastrarContato()">Cadastrar</button> 
-								</form>
+									<input class="form-input" type="text" name="nome" id="nome" autocomplete="off" placeholder="nome" required>
+									<input class="form-input" type="text" name="email" id="email" autocomplete="off" placeholder="email" required>
+									<input class="form-input" type="text" name="telefone" onkeypress="mask(this, mphone);" autocomplete="off" id="telefone" placeholder="telefone" required>
+									<button onclick="cadastrar()" class="input-submit">Cadastrar</button> 
 								<button class="bnt-fechar-form" onclick="fecharModalCadastrar()">Fechar formulário</button>
 							</div>
 						</div>`
@@ -121,9 +122,9 @@
 			let html = `<div class="back" id="modalCadastro">
 							<div class="modal-cadastrar">
 								<h1 class="menu-title">Editar contato</h1>
-									<input class="form-input" id="editarNome" type="text" name="" placeholder="nome" value="` + nome +`">
-									<input class="form-input" id="editarEmail" type="text" name="" placeholder="email" value="` + email +`">
-									<input class="form-input" id="editarTelefone" type="text" name="" placeholder="telefone" onkeypress="mask(this, mphone);" value="` + telefone +`">
+									<input class="form-input" id="editarNome" type="text" name="" autocomplete="off" placeholder="nome" value="` + nome +`" required>
+									<input class="form-input" id="editarEmail" type="text" name="" autocomplete="off" placeholder="email" value="` + email +`" required>
+									<input class="form-input" id="editarTelefone" type="text" name="" autocomplete="off" placeholder="telefone" onkeypress="mask(this, mphone);" value="` + telefone +`" required>
 									<button onclick="editar(` + id + `)" class="input-submit">Editar</button> 
 								<button onclick="fecharModalCadastrar()" class="bnt-fechar-form">Fechar formulário</button>
 							</div>
@@ -137,9 +138,11 @@
 			let email = document.getElementById('editarEmail').value;
 			let telefone = document.getElementById('editarTelefone').value;
 
-			eel.editar(id, nome, email, telefone);
-			fecharModalCadastrar();
-			pesquisar();
+			if (nome.trim() != '' && email.trim() != '' && telefone.trim() != '') {
+				eel.editar(id, nome, email, telefone);
+				fecharModalCadastrar();
+				pesquisar();
+			}
 
 		}
 
