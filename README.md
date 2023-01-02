@@ -11,8 +11,17 @@
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
 * python 3.10 ou superior
-* biblioteca python eel `pip install eel`.
-* Biblioteca python pyautogui  `pip install pyautogui`.
+
+* biblioteca python eel 
+```
+pip install eel
+```
+
+* Biblioteca python pyautogui  
+
+```
+pip install pyautogui
+```
 
 
 ## 🚀 Executando o projeto
